@@ -12,7 +12,7 @@ module.exports={
 	output:{
 		path:__dirname+'/public',
 		filename:'[name].js',
-		publicPath:'http://localhost:8080/public'
+		publicPath:'http://localhost:3000/public'
 	},
 	devtool:'eval-source-map',
 	module:{

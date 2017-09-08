@@ -1,7 +1,7 @@
 require('../index/index');
-console.log('common.js');
+console.log('common.js555');
 
 //在入口文件加入这行代码，可以实现修改js文件后ajax刷新
-if(module.hot){
+/*if(module.hot){
 	module.hot.accept();
-}
+}*/
