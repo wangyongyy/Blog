@@ -33,7 +33,24 @@ module.exports={
 			{
 				test:/\.(png|jpg|gif)$/,
 				use:'url-loader?limit=8192&context=client&name=/img/[name].[ext]'  //小于8k的图片直接编码，大于8k生成文件。
-			}
+			},
+			{
+		      test: /\.js$/,
+		      exclude: /(node_modules)/,
+		      use: {
+		        loader: 'babel-loader',
+		        options: {
+		          presets: ['env'],
+		          plugins: ['transform-runtime']
+		        }
+		      }
+		   },
+		   {
+	        	test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+	         	use: [
+	           		'file-loader?limit=8192&name=/fonts/[name].[ext]'
+	        	]
+	       }
 		]
 	},
 	plugins:[
