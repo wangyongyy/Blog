@@ -7,6 +7,11 @@ router.get('/', (req, res, next) => {
 
 router.get('/index',(req,res,next)=>{
     res.render('index');
-})
+});
+
+//跳转登录界面
+router.get('/login',(req,res,next)=>{
+    res.render('login');
+});
 
 module.exports=router;

@@ -7,7 +7,8 @@ const srcPath=path.resolve(__dirname,'src');
 
 module.exports={
 	entry:{
-		'common/main':[srcPath+'/common/common.js','webpack-hot-middleware/client?reload=true'] //重载策略，修改前端代码，自动刷新
+		'common/main':[srcPath+'/common/common.js','webpack-hot-middleware/client?reload=true'], //重载策略，修改前端代码，自动刷新
+		'common/admin-lib':['bootstrap','BOOTSTRAP_CSS']
 	},
 	output:{
 		path:__dirname+'/public',
@@ -15,6 +16,13 @@ module.exports={
 		publicPath:'http://localhost:3000/public'
 	},
 	devtool:'eval-source-map',
+	resolve:{ //取别名
+		modules:[srcPath,'node_modules'],//知道webpack查找文件目录名
+		alias:{
+			SRC:srcPath,
+			BOOTSTRAP_CSS:'bootstrap/dist/css/bootstrap.css'
+		}
+	},
 	module:{
 		rules:[
 			//css处理

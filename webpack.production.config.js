@@ -12,12 +12,20 @@ const ExtractTextPlugin=require('extract-text-webpack-plugin');
 
 module.exports={
 	entry:{
-		'common/main':[srcPath+'/common/common.js'] //重载策略，修改前端代码，自动刷新
+		'common/main':[srcPath+'/common/common.js'], //重载策略，修改前端代码，自动刷新
+		'common/admin-lib':['bootstrap','BOOTSTRAP_CSS']
 	},
 	output:{
 		path:__dirname+'/public',
 		filename:'[name].js',
 		publicPath:'http://localhost:8080/public'
+	},
+	resolve:{ //取别名
+		modules:[srcPath,'node_modules'],//知道webpack查找文件目录名
+		alias:{
+			SRC:srcPath,
+			BOOTSTRAP_CSS:'bootstrap/dist/css/bootstrap.css'
+		}
 	},
 	module:{
 		rules:[

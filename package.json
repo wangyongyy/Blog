@@ -42,8 +42,10 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "body-parser": "^1.18.0",
+    "bootstrap": "^3.3.7",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
+    "jquery": "^3.2.1",
     "mongoose": "^4.11.10",
     "swig": "^1.4.2"
   }

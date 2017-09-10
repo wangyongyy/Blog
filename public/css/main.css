@@ -1,5 +1,4 @@
+@charset "utf-8";
 body{
-	background: url(http://localhost:8080/public/img/touxiang.jpg) no-repeat;
-	color: red;
-	
+	background: #CCCCCC;
 }
