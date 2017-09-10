@@ -8,10 +8,15 @@
 	<body class="login">
 		
 		<div class="container">
-			<h1>
-				<a class="avatar" href="/"></a>
-			</h1>
+			
 			<div class="row">
+				<h1>
+					<a class="avatar" href="/"></a>
+				</h1>
+				<div id="errorMesg" style="display: none;" class="alert alert-danger col-sm-4 col-sm-offset-4">
+					
+					
+				</div>
 				<form action="" class="col-sm-4 col-sm-offset-4">
 					<div class="form-group">
 						<label for="username">用户名:</label>
@@ -19,7 +24,7 @@
 					</div>
 					<div class="form-group">
 						<label for="password">密码:</label>
-						<input class="form-control" type="text" id="password" name="password" />
+						<input class="form-control" type="password" id="password" name="password" />
 					</div>
 					
 					<button type="submit" class="btn btn-primary pull-right">登录</button>
@@ -28,6 +33,6 @@
 		</div>
 		
 		<script src="public/common/admin-lib.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/public/common/main.js" type="text/javascript" charset="utf-8"></script>
+		<script data-main="login/login" src="/public/common/main.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

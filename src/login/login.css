@@ -15,6 +15,7 @@ body.login{
 	margin: 20px auto;
 }
 .login form{
+	padding: 30px;
 	border: 1px solid red;
 	background: pink;
 	opacity:0.6;

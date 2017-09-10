@@ -43,16 +43,16 @@ module.exports={
 				use:'url-loader?limit=8192&context=client&name=/img/[name].[ext]'  //小于8k的图片直接编码，大于8k生成文件。
 			},
 			{
-		      test: /\.js$/,
-		      exclude: /(node_modules)/,
-		      use: {
-		        loader: 'babel-loader',
-		        options: {
-		          presets: ['env'],
-		          plugins: ['transform-runtime']
-		        }
-		      }
-		   },
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env'],
+                        plugins: ['transform-runtime','syntax-dynamic-import']
+                    }
+                }
+           },
 		   {
 	        	test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
 	         	use: [
@@ -75,6 +75,6 @@ module.exports={
 			jQuery:'jquery'
         }),
         //混淆压缩
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin() //不支持es6
 	]
 }

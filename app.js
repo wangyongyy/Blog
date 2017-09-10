@@ -105,8 +105,10 @@ if (isDev) {
 }
 
 
-mongoose.connect('mongodb://localhost:27017/Blog',(error)=>{
-    if(!error){
-        console.log('数据库连接成功链接成功了');
-    }
-});
+mongoose.connect('mongodb://localhost:27017/Blog',{useMongoClient: true})
+.on('open',(db)=>{
+	console.log('数据库链接成功');
+})
+.on('error',(error)=>{
+	console.log('数据库链接失败')
+})
