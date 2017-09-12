@@ -20,7 +20,8 @@ module.exports={
 		modules:[srcPath,'node_modules'],//知道webpack查找文件目录名
 		alias:{
 			SRC:srcPath,
-			BOOTSTRAP_CSS:'bootstrap/dist/css/bootstrap.css'
+			BOOTSTRAP_CSS:'bootstrap/dist/css/bootstrap.css',
+			BOOTSTRAP_TABLE_CSS:'bootstrap-table/dist/bootstrap-table.css'
 		}
 	},
 	module:{
