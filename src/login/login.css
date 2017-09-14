@@ -1,22 +1,21 @@
-@charset "utf-8";
-body.login{
-	background: #666666;
+body{
+	background: url("https://cn.bing.com/az/hprichbg/rb/CityPalace_ZH-CN7843237957_1920x1080.jpg");
+	background-attachment: fixed;
+}
+.login form{
+	border-radius: 8px;
+	padding: 20px;
+	background-color: rgba(251,251,251,0.3);
 }
 .login .container{
-	margin-top: 100px;
+	margin-top: 200px;
 }
 .login .avatar{
 	display: block;
 	width: 80px;
 	height: 80px;
-	background: url(touxiang.jpg) no-repeat center;
-	background-size: contain;  /*全屏*/
 	border-radius: 50%;
+	background: url(touxiang.jpg);
+	background-size: contain;
 	margin: 20px auto;
-}
-.login form{
-	padding: 30px;
-	border: 1px solid red;
-	background: pink;
-	opacity:0.6;
 }

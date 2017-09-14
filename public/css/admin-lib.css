@@ -263,8 +263,8 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
-  src: url(http://localhost:8080/public/fonts/glyphicons-halflings-regular.eot);
-  src: url(http://localhost:8080/public/fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(http://localhost:8080/public/fonts/glyphicons-halflings-regular.woff2) format('woff2'), url(http://localhost:8080/public/fonts/glyphicons-halflings-regular.woff) format('woff'), url(http://localhost:8080/public/fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(http://localhost:8080/public/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg');
+  src: url(http://localhost:8080/public//fonts/glyphicons-halflings-regular.eot);
+  src: url(http://localhost:8080/public//fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(http://localhost:8080/public//fonts/glyphicons-halflings-regular.woff2) format('woff2'), url(http://localhost:8080/public//fonts/glyphicons-halflings-regular.woff) format('woff'), url(http://localhost:8080/public//fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(http://localhost:8080/public//fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg');
 }
 .glyphicon {
   position: relative;
@@ -6754,3 +6754,4 @@ button.close {
     display: none !important;
   }
 }
+/*# sourceMappingURL=bootstrap.css.map */
