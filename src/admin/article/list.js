@@ -23,7 +23,8 @@ Date.prototype.Format = function (fmt) { //author: meizz
 
 
 $('#table').bootstrapTable({
-	url:'/admin/article/list',
+	//url:'/admin/article/list',客户端分页
+	url:'/admin/article/pagination', //服务端分页
 	columns:[
 		{
 			field:'_id',
@@ -49,4 +50,23 @@ $('#table').bootstrapTable({
 	showColumns:true,
 	paginationPreText:'上一页',
 	paginationNextText:'下一页',
+	search:true,
+	sidePagination:'server',
+	responseHandler:function(res){ //加载后端数据成功后会调用的函数
+		
+		/*return {
+			total:60,
+			rows:[
+				{_id:1,title:'标题',body:'内容',time:Date.now()}
+			]
+		}*/
+		if(!res.success){
+			return {
+				total:0,
+				rows:[]
+			}
+		};
+		return res.data;
+		
+	}
 })
