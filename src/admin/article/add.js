@@ -1,4 +1,8 @@
 
+//初始化编辑器
+var ue = UE.getEditor('body');
+
+
 require('jquery-validation');
 
 require('jquery-validation/dist/localization/messages_zh.js');
@@ -48,7 +52,7 @@ $('#myForm').validate({
 			method:'post',
 			data:{
 				'title':$('#title').val(),
-				'body':$('#body').val()
+				'body':ue.getContent()
 			},
 			success:function(res){
 				alert(res.messages);

@@ -1,3 +1,6 @@
+//初始化编辑器
+var ue = UE.getEditor('body');
+
 
 require('jquery-validation');
 
@@ -49,7 +52,7 @@ $('#myForm').validate({
 			data:{
 				'id':$('#id').val(),
 				'title':$('#title').val(),
-				'body':$('#body').val()
+				'body':ue.getContent()
 			},
 			success:function(res){
 				//alert(res.messages);

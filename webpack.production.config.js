@@ -25,7 +25,8 @@ module.exports={
 		modules:[srcPath,'node_modules'],//知道webpack查找文件目录
 		alias: {
 		  SRC:srcPath, 
-		  BOOTSTRAP_CSS:'bootstrap/dist/css/bootstrap.css'
+		  BOOTSTRAP_CSS:'bootstrap/dist/css/bootstrap.css',
+		  BOOTSTRAP_TABLE_CSS:'bootstrap-table/dist/bootstrap-table.css'
 		}
 	},
 	
@@ -64,7 +65,9 @@ module.exports={
 		]
 	},
 	plugins:[
-		new CleanWebpackPlugin(['public']),
+		new CleanWebpackPlugin(['public'],{
+			exclude:['ueditor']
+		}),
 		new ExtractTextPlugin({
 			filename:function(getPath){
 				console.log(getPath('css/[name].css'),'这是什么');

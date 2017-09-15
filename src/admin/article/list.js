@@ -40,10 +40,6 @@ $('#table').bootstrapTable({
 			title:'标题',
 			sortable:true
 		},{
-			field:'body',
-			title:'内容',
-			sortable:true
-		},{
 			field:'time',
 			title:'发布时间',
 			align:'center',
@@ -58,13 +54,32 @@ $('#table').bootstrapTable({
 			formatter:function(value){
 				return `<div class="btn-group" role="group" aria-label="...">
 					<button data-action="edit" type="button" class="btn btn-primary">编辑</button>
-					<button type="button" class="btn btn-danger">删除</button>
+					<button data-action="delete" type="button" class="btn btn-danger">删除</button>
 				</div>`
 			},
 			events:{
 				'click [data-action="edit"]':function(e,value,row,index){ //event事件源对象，value当前字段，row这一行的数据，index索引
 					console.log(e,value,row,index);
 					location.href='/admin/article/'+row['_id'];
+				},
+				'click [data-action="delete"]':function(e,value,row,index){ //event事件源对象，value当前字段，row这一行的数据，index索引
+					let isSure=window.confirm('你确定删除['+row['title']+']吗')
+					if(isSure){
+						//alert('确定删除');
+						$.ajax({
+							url:'/admin/article/'+row['_id'],
+							method:'delete',
+							success:function(res){
+								alert(res.message);
+								if(res.success){
+									$('#table').bootstrapTable('remove',{
+										field:'_id',
+										values:[row['_id']]
+									})
+								}
+							}
+						})
+					}
 				}
 			}
 		}

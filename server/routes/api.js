@@ -50,6 +50,8 @@ router.post('/user/check',(req,res,next)=>{
 		}
 	})
 	
-})
+});
+
+
 
 module.exports=router;

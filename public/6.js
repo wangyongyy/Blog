@@ -1,1 +1,1 @@
-webpackJsonp([6],{23:function(n,c){}});
+webpackJsonp([6],{27:function(p,n,o){p.exports=o.p+"/img/touxiang.jpg"}});

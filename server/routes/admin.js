@@ -60,6 +60,10 @@ router.get('/article/pagination',(req,res,next)=>{
 	Article.find().sort({
 		[sort]:order
 	}).skip(offset).limit(limit).then(articles=>{
+		/*articles.map((item,index)=>{
+			console.log(item);
+			item.body=item.body.substring(20,100);
+		})*/
 		responseMesg.success=true;
 		responseMesg.data.rows=articles;
 		res.json(responseMesg);
@@ -84,12 +88,27 @@ router.get('/article/:id',(req,res,next)=>{
 	let id = req.params.id;
 	Article.findById(id).then(article=>{
 		res.render('admin/article-edit',{
-			article
+			article,
 		});
 	})
 	console.log(id)
-	
 })
+
+
+/*
+ *
+ *删除文章
+ */
+router.delete('/article/:id',(req,res,next)=>{
+	
+	Article.findByIdAndRemove(req.params.id).then(article=>{
+		responseMesg.success=true;
+		responseMesg.message='删除成功';
+		res.json(responseMesg);
+	})
+})
+
+
 
 /*
  *
