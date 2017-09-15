@@ -29,7 +29,9 @@ $('#table').bootstrapTable({
 		{
 			field:'_id',
 			title:'ID',
-			width:200
+			width:200,
+			display:'none',
+			visible:false
 		},{
 			field:'title',
 			title:'标题'
@@ -51,6 +53,7 @@ $('#table').bootstrapTable({
 	paginationPreText:'上一页',
 	paginationNextText:'下一页',
 	search:true,
+	classes:'table table-hover table-no-bordered',
 	sidePagination:'server',
 	responseHandler:function(res){ //加载后端数据成功后会调用的函数
 		

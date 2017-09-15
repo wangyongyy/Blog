@@ -59,15 +59,31 @@ router.get('/article/pagination',(req,res,next)=>{
 
 
 /*
- *保存文章的借口
+ *跳转到文章添加页面
  */
-let i=0;
-router.get('/article/save',(req,res,next)=>{
+
+router.get('/article/add',(req,res,next)=>{
+	res.render('admin/article-add');
+})
+
+/*
+ *保存文章
+ */
+router.post('/article/save',(req,res,next)=>{
+	//获取内容
+	let parms=req.body;
+	if(!parms.title&!parms.body){
+		responseMesg.message='标题或者内容不能为空';
+		res.json(responseMesg);
+		return;
+	}
 	new Article({
-		title:'标题'+(i++),
-		body:'内容'+i
+		title:parms.title,
+		body:parms.body,
 	}).save().then(article=>{
-		res.json(article)
+		responseMesg.success=true;
+		responseMesg.message='提交成功';
+		res.json(responseMesg);
 	})
 })
 
