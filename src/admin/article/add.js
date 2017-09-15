@@ -38,7 +38,7 @@ $('#myForm').validate({
 			'required':'用户名不能为空',
 		},
 		'body':{
-			'required':'内容不能为空',
+			'required':'内容不能为',
 		}
 	},
 	submitHandler:function(form){
