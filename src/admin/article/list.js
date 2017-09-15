@@ -25,27 +25,50 @@ Date.prototype.Format = function (fmt) { //author: meizz
 $('#table').bootstrapTable({
 	//url:'/admin/article/list',客户端分页
 	url:'/admin/article/pagination', //服务端分页
+	sortOrder:'desc',  //默认排序方式  desc降序
 	columns:[
 		{
 			field:'_id',
 			title:'ID',
 			width:200,
 			display:'none',
-			visible:false
+			visible:false,
+			sortable:true,
+			
 		},{
 			field:'title',
-			title:'标题'
+			title:'标题',
+			sortable:true
 		},{
 			field:'body',
-			title:'内容'
+			title:'内容',
+			sortable:true
 		},{
 			field:'time',
 			title:'发布时间',
 			align:'center',
 			formatter:function(value){
 				return new Date().Format("yyyy-MM-dd hh:mm:ss"); 
+			},
+			sortable:true
+		},{
+			field:'oprate',
+			title:'操作',
+			align:'center',
+			formatter:function(value){
+				return `<div class="btn-group" role="group" aria-label="...">
+					<button data-action="edit" type="button" class="btn btn-primary">编辑</button>
+					<button type="button" class="btn btn-danger">删除</button>
+				</div>`
+			},
+			events:{
+				'click [data-action="edit"]':function(e,value,row,index){ //event事件源对象，value当前字段，row这一行的数据，index索引
+					console.log(e,value,row,index);
+					location.href='/admin/article/'+row['_id'];
+				}
 			}
 		}
+		
 	],
 	pagination:true,
 	showRefresh:true,
