@@ -10,7 +10,8 @@ module.exports={
 	//入口----------------------------------------------------
 	entry:{
 		'common/main':[srcPath+'/common/common.js','webpack-hot-middleware/client?reload=true'], //自动刷新
-		'common/admin-lib':['jquery','bootstrap','BOOTSTRAP_CSS']  //public目录下回生成一个common/admin-lib.js和common/admin-lib.css文件
+		'common/admin-lib':['jquery','bootstrap','BOOTSTRAP_CSS'],  //public目录下回生成一个common/admin-lib.js和common/admin-lib.css文件
+		'common/lib':['jquery']
 	},
 	//出口--------------------------------------------------
 	output:{

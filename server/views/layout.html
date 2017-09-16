@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %}首页 {% endblock %}</title>
+		{% block css %}首页 {% endblock %}
+	</head>
+	<body>
+		
+		{% block content %}
+		<div id="wrap">
+			<header id="main-header">
+				
+			</header>
+		</div>
+		{% endblock %}
+		<script src="/public/common/lib.js" type="text/javascript" charset="utf-8"></script>
+		{% block js %}{% endblock %}
+		<script src="reload/reload.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

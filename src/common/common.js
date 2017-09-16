@@ -14,6 +14,13 @@ if(modelPath){
 	}).catch(err=>{
 		console.log('加载失败',err);
 	})
+};
+
+//如果不是以/admin&/login开头的不是后台界面或者登陆界面
+if(!location.pathname.startsWith('/admin')&&!location.pathname.startsWith('/login')){ 
+	 //点击a标签，抓取内容放在container容器里面
+	 require('jquery-pjax');
+	 $(document).pjax('a.pjax', '#main');
 }
 
 

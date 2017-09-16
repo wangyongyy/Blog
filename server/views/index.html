@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<!--<link rel="stylesheet" type="text/css" href="/public/css/main.css"/>-->
-	</head>
-	<body>
-		我是index.htl
-		这里是搜索  这里jasdgfla这里不是不是
-		<button class="btn">点我</button>
-		<script src="public/common/admin-lib.js" type="text/javascript" charset="utf-8"></script>
-		<script data-main="index/index" src="/public/common/main.js" type="text/javascript" charset="utf-8"></script>
+{% extends './layout.html' %}
+
+{% block title %}首页{% endblock %}
+
+
 		
-	</body>
-</html>
+{% block content %}
+	<a class="pjax" href="/article/detail">点我跳转</a>
+	<div id="main">
+		我是首页
+	</div>
+{% endblock %}
+		
+		
+{% block js %}
+	<script data-main="index/index" src="/public/common/main.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+

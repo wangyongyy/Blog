@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 let userSchema = new mongoose.Schema({
 	title:String,
 	body:String,
+	cover:String, //文章封面
 	comments:[
 		{
 			body:String,

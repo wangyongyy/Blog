@@ -6,9 +6,21 @@ router.get('/index',(req,res,next)=>{
 	res.render('index');
 })
 
+/*
+ *
+ *首页
+ */
 router.get('/',(req,res,next)=>{
 	res.render('index');
 })
+
+/*
+ *文章详情页
+ */
+router.get('/article/detail',(req,res,next)=>{
+	res.render('article-details');
+})
+
 
 router.get('/admin/article',(req,res,next)=>{
 	res.render('admin/article-list');
@@ -38,19 +50,19 @@ router.get('/article/list',(req,res,next)=>{
 	Article.find().sort({
 		'_id':-1
 	}).skip(offset).limit(limit).then(articles=>{
-		articles.map((item,index)=>{
+		articles = articles.map((item,index)=>{
 			//获取body中的第一张图片作为封面
 			let result = item.body.match(/<img [^>]*src=['"]([^'"]+)[^>]*>/);
 			console.log(result);
 			if(result){
-				item.cover = result[0];
+				item.cover = result[0];  //封面设置
 			}else{
 				item.cover='http://o0xihan9v.qnssl.com/wp-content/uploads/2016/01/1437464131114260.jpg'
 			}
 			item.body=item.body.replace(/<[^>]+>/g,"");
 			item.body=item.body.substring(0,77)+'...';
 			console.log(item.cover);
-			return;
+			return item;
 		})
 		
 		res.json(articles);
