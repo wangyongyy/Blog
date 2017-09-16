@@ -9,9 +9,10 @@
     	 <div id="singular-content">
     	 	<article>
     	 		<header class="entry-header">
-    	 			<h1>这里是标题</h1>
+    	 			<h1>{{article.title}}</h1>
     	 		</header>
-    	 		<div class="entry-content">内容</div>
+    	 		<!--raw() 确保html不会被转义-->
+    	 		<div class="entry-content">{{article.body|raw()}}</div>
     	 		<div class="clear"></div>
     	 	</article>
     	 </div>
