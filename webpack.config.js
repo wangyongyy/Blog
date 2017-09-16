@@ -11,7 +11,7 @@ module.exports={
 	entry:{
 		'common/main':[srcPath+'/common/common.js','webpack-hot-middleware/client?reload=true'], //自动刷新
 		'common/admin-lib':['jquery','bootstrap','BOOTSTRAP_CSS'],  //public目录下回生成一个common/admin-lib.js和common/admin-lib.css文件
-		'common/lib':['jquery']
+		'common/lib':['jquery','APP_CSS']
 	},
 	//出口--------------------------------------------------
 	output:{
@@ -29,7 +29,8 @@ module.exports={
 		alias: {
 		  SRC:srcPath, 
 		  BOOTSTRAP_CSS:'bootstrap/dist/css/bootstrap.css',
-		  BOOTSTRAP_TABLE_CSS:'bootstrap-table/dist/bootstrap-table.css'
+		  BOOTSTRAP_TABLE_CSS:'bootstrap-table/dist/bootstrap-table.css',
+		  APP_CSS:'SRC/common/app.less'
 		}
 	},
 	
@@ -41,10 +42,11 @@ module.exports={
 				use:'url-loader'
 			},
 			{
-				test:/\.css$/,
+				test:/(\.css|.less)$/,
 				use:[
 					'style-loader',  //使用style-loader处理器
-					'css-loader?sourceMap'	  //使用css-loader处理器
+					'css-loader?sourceMap',	  //使用css-loader处理器
+					'less-loader'   //处理.less后缀的文件
 				]
 			},
 			{
